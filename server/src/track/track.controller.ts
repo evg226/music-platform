@@ -1,23 +1,25 @@
-import {Controller, Get} from "@nestjs/common";
+import {Controller, Delete, Post, Get, Param} from "@nestjs/common";
 
-@Controller('/tracks')
+@Controller('tracks')
 export class TrackController {
 
+    @Post()
     create () {
         return "create";
     }
 
     @Get()
     gellAll () {
-        return "List of all tracks";
+        return {message:"List of all tracks"};
     }
 
-    @Get()
-    getOne() {
-        return "List one track";
+    @Get(':id')
+    getOne( @Param('id') id ) {
+        return `One track #${id}`;
     }
 
-    delete () {
-        return "delete";
+    @Delete(':id')
+    delete (@Param('id') id ) {
+        return `delete ${id}`;
     }
 }

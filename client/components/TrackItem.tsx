@@ -12,7 +12,7 @@ interface TrackItemProps {
 }
 
 const TrackItem:React.FC<TrackItemProps> = ({
-          track, active= true}) => {
+          track, active= false}) => {
 
     const router=useRouter();
 

@@ -1,7 +1,7 @@
 export interface IComment {
     _id: string,
     username: string,
-    string: string
+    name: string
 }
 
 export interface ITrack {

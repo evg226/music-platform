@@ -3,7 +3,6 @@ import MainLayout from "../../layouts/MainLayout";
 import {ITrack} from "../../types/track";
 import {useRouter} from "next/router";
 import {Box, Button, Card, Container, Grid, TextField, Typography} from "@mui/material";
-import {Image} from "@mui/icons-material";
 import {blueGrey, grey, indigo, lightBlue} from "@mui/material/colors";
 
 
@@ -64,14 +63,22 @@ const TrackPage = () => {
                                 label={'Ваше Имя'}
                                 fullWidth
                             />
-                            <TextField
+                            <TextField sx={{my:1}}
                                 label={'Комментарий'}
                                 fullWidth
                                 multiline
                                 rows={4}
                             />
+                            <Button>Отправить</Button>
                         </Grid>
-
+                    </Grid>
+                    <Grid p={2}>
+                        {track.comments.map(comment=>
+                            <>
+                                <Typography>{comment.username}</Typography>
+                                <Typography>{comment.name}</Typography>
+                            </>
+                        )}
                     </Grid>
                 </Box>
             </Container>

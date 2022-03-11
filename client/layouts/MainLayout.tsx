@@ -1,5 +1,6 @@
 import React from 'react';
 import {Navbar} from "../components/Navbar";
+import Player from "../components/Player";
 
 const MainLayout: React.FC = ({children}) => {
     return (
@@ -9,8 +10,9 @@ const MainLayout: React.FC = ({children}) => {
                   <div className={'content'}>
                         {children}
                   </div>
-            </div>
 
+            </div>
+            <Player />
             <style jsx>
                 {`
                 .page {

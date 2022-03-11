@@ -6,6 +6,8 @@ import FileUpload from "../../components/FileUpload";
 
 const Create = () => {
     const [activeStep,setActiveStep]=useState(0);
+    const [picture,setPicture]=useState(null);
+    const [audio,setAudio]=useState(null);
     const next=()=>{
         activeStep<3 && setActiveStep(prev=>prev+1);
     }
@@ -42,7 +44,14 @@ const Create = () => {
                         </>
                     }
                     {activeStep===1 &&
-                        <FileUpload file={''} setFile={()=>({})} />
+                        <FileUpload setFile={setPicture} accept={'image/*'}>
+                            <Button>Загрузить рисунок</Button>
+                        </FileUpload>
+                    }
+                    {activeStep===2 &&
+                        <FileUpload  setFile={setAudio} accept={'audio/*'}>
+                            <Button>Загрузить аудио</Button>
+                        </FileUpload>
                     }
                 </Grid>
                 <Grid container justifyContent={'space-evenly'} sx={{pb:2}}>
